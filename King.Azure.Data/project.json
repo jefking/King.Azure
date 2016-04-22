@@ -1,10 +1,15 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "2.0.0-*",
+  "title": "King.Azure",
   "description": "King.Azure.Data Class Library",
-  "authors": [ "jefkin" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "authors": [ "Jef King" ],
+  "owners": [ "Jef King" ],
+  "tags": [ "King.Azure Azure Storage Mock Mockable Simple Data Table Storage File Share File-Share Queue Queuing Blob Query dependency injection dependency-injection Cloud Table-Storage Windows-Azure Windows dotNet CSharp Mocking Data-Table Blob Json WindowsAzure.Storage .NetCore DNX" ],
+  "projectUrl": "https://github.com/jefking/King.Azure",
+  "licenseUrl": "https://github.com/jefking/King.Azure/blob/master/LICENSE",
+  "iconUrl": "https://raw.githubusercontent.com/jefking/King.Azure/master/icon.png",
+  "copyright": "Jef King",
+  "language": "en-us",
 
   "frameworks": {
     "net451": { },
