@@ -110,11 +110,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Data\AzureStorageResourcesTests.cs" />
-    <Compile Include="Data\ContainerTests.cs" />
-    <Compile Include="Data\FileShareTests.cs" />
-    <Compile Include="Data\QueueTests.cs" />
-    <Compile Include="Data\TableStorageTests.cs" />
+    <Compile Include="AzureStorageResourcesTests.cs" />
+    <Compile Include="ContainerTests.cs" />
+    <Compile Include="FileShareTests.cs" />
+    <Compile Include="QueueTests.cs" />
+    <Compile Include="TableStorageTests.cs" />
     <Compile Include="Initialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

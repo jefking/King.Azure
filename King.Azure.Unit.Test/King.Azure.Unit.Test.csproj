@@ -109,15 +109,15 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Data\AzureStorageResourcesTests.cs" />
-    <Compile Include="Data\AzureStorageTests.cs" />
-    <Compile Include="Data\ContainerTests.cs" />
-    <Compile Include="Data\FileShareTests.cs" />
-    <Compile Include="Data\StorageQueuedMessageTests.cs" />
-    <Compile Include="Data\StorageQueuePollerTests.cs" />
-    <Compile Include="Data\StorageQueueShardsTests.cs" />
-    <Compile Include="Data\StorageQueueTests.cs" />
-    <Compile Include="Data\TableStorageTests.cs" />
+    <Compile Include="AzureStorageResourcesTests.cs" />
+    <Compile Include="AzureStorageTests.cs" />
+    <Compile Include="ContainerTests.cs" />
+    <Compile Include="FileShareTests.cs" />
+    <Compile Include="StorageQueuedMessageTests.cs" />
+    <Compile Include="StorageQueuePollerTests.cs" />
+    <Compile Include="StorageQueueShardsTests.cs" />
+    <Compile Include="StorageQueueTests.cs" />
+    <Compile Include="TableStorageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
