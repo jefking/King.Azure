@@ -10,6 +10,10 @@
   "copyright": "Jef King",
   "language": "en-us",
 
+  "commands": {
+    "test": "xunit.runner.dnx"
+  },
+
   "frameworks": {
     "net451": { },
     "dotnet5.4": {
