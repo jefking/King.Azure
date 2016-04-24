@@ -3,6 +3,13 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.1": {
+      "King.Azure.Data/2.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "WindowsAzure.Storage": "7.0.1-preview"
+        }
+      },
       "Microsoft.Azure.KeyVault.Core/1.0.0": {
         "type": "package",
         "compile": {
@@ -260,6 +267,18 @@
       }
     },
     ".NETPlatform,Version=v5.4": {
+      "King.Azure.Data/2.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516",
+          "WindowsAzure.Storage": "7.0.1-preview"
+        }
+      },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -1145,6 +1164,13 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
+      "King.Azure.Data/2.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "WindowsAzure.Storage": "7.0.1-preview"
+        }
+      },
       "Microsoft.Azure.KeyVault.Core/1.0.0": {
         "type": "package",
         "compile": {
@@ -1402,6 +1428,13 @@
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
+      "King.Azure.Data/2.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "WindowsAzure.Storage": "7.0.1-preview"
+        }
+      },
       "Microsoft.Azure.KeyVault.Core/1.0.0": {
         "type": "package",
         "compile": {
@@ -1659,6 +1692,18 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x86": {
+      "King.Azure.Data/2.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516",
+          "WindowsAzure.Storage": "7.0.1-preview"
+        }
+      },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -2573,6 +2618,18 @@
       }
     },
     ".NETPlatform,Version=v5.4/win7-x64": {
+      "King.Azure.Data/2.0.0": {
+        "type": "project",
+        "framework": ".NETPlatform,Version=v5.4",
+        "dependencies": {
+          "Microsoft.CSharp": "4.0.1-beta-23516",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516",
+          "WindowsAzure.Storage": "7.0.1-preview"
+        }
+      },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
         "dependencies": {
@@ -3488,6 +3545,10 @@
     }
   },
   "libraries": {
+    "King.Azure.Data/2.0.0": {
+      "type": "project",
+      "path": "../King.Azure.Data/project.json"
+    },
     "Microsoft.Azure.KeyVault.Core/1.0.0": {
       "type": "package",
       "sha512": "iaA0E8xoVlqroQ7Iurg/VyAjfPdhzn+xN7JkdncmNoox/ez49uPbxp2vMrvhopBaUMuoBu38+8e0RvrV+X+BxA==",
@@ -5254,6 +5315,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "King.Azure.Data >= 2.0.0-*",
       "WindowsAzure.Storage >= 7.0.1-preview",
       "xunit >= 2.1.0"
     ],

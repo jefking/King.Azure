@@ -27,6 +27,7 @@
     }
   },
   "dependencies": {
+    "King.Azure.Data": "2.0.0-*",
     "WindowsAzure.Storage": "7.0.1-preview",
     "xunit": "2.1.0"
   }

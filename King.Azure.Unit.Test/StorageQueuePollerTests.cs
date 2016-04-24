@@ -3,13 +3,12 @@
     using King.Azure.Data;
     using Microsoft.WindowsAzure.Storage.Queue;
     using NSubstitute;
-    using NUnit.Framework;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Xunit;
 
-    [TestFixture]
     public class StorageQueuePollerTests
     {
         const string ConnectionString = "UseDevelopmentStorage=true";
