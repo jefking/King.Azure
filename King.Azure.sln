@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B65D0744-3BE9-4B13-A7D4-1D30E2587DD9}"
 	ProjectSection(SolutionItems) = preProject
 		King.Azure.Data\global.json = King.Azure.Data\global.json
+		King.Azure.Unit.Test\global.json = King.Azure.Unit.Test\global.json
 		README.md = README.md
 	EndProjectSection
 EndProject

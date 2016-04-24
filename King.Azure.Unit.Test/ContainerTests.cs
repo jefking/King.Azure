@@ -2,10 +2,10 @@
 {
     using King.Azure.Data;
     using Microsoft.WindowsAzure.Storage;
-    
-    using System;
 
-    
+    using System;
+    using Xunit;
+
     public class ContainerTests
     {
         private const string ConnectionString = "UseDevelopmentStorage=true;";

@@ -1,9 +1,8 @@
 ﻿namespace King.Azure.Unit.Test.Data
 {
     using King.Azure.Data;
-    
+    using Xunit;
 
-    
     public class AzureStorageResourcesTests
     {
         private readonly string ConnectionString = "UseDevelopmentStorage=true;";

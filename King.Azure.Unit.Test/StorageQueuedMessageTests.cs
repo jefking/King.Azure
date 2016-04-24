@@ -6,8 +6,7 @@
     using Microsoft.WindowsAzure.Storage.Queue;
     using Newtonsoft.Json;
     using NSubstitute;
-    
-
+    using Xunit;
     
     public class StorageQueuedMessageTests
     {
