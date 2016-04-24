@@ -4,7 +4,7 @@
     using King.Azure.Data;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Queue;
-    using NUnit.Framework;
+    
 
     public class StorageQueueTests
     {
