@@ -6,68 +6,67 @@
     using King.Azure.Data;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Table;
-    using NUnit.Framework;
+    using Xunit;
 
-    [TestFixture]
     public class TableStorageTests
     {
         private const string ConnectionString = "UseDevelopmentStorage=true;";
 
-        [Test]
+        [Fact]
         public void Constructor()
         {
             new TableStorage("TestTable", ConnectionString);
         }
 
-        [Test]
+        [Fact]
         public void IsITableStorage()
         {
             Assert.IsNotNull(new TableStorage("TestTable", ConnectionString) as ITableStorage);
         }
 
-        [Test]
+        [Fact]
         public void PartitionKey()
         {
             Assert.AreEqual("PartitionKey", TableStorage.PartitionKey);
         }
 
-        [Test]
+        [Fact]
         public void RowKey()
         {
             Assert.AreEqual("RowKey", TableStorage.RowKey);
         }
 
-        [Test]
+        [Fact]
         public void Timestamp()
         {
             Assert.AreEqual("Timestamp", TableStorage.Timestamp);
         }
 
-        [Test]
+        [Fact]
         public void ETag()
         {
             Assert.AreEqual("ETag", TableStorage.ETag);
         }
 
-        [Test]
+        [Fact]
         public void ConstructorTableNull()
         {
             Assert.That(() => new TableStorage(null, ConnectionString), Throws.TypeOf<ArgumentException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorAccountTableNull()
         {
             Assert.That(() => new TableStorage(null, CloudStorageAccount.Parse(ConnectionString)), Throws.TypeOf<ArgumentException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorConnectionStringNull()
         {
             Assert.That(() => new TableStorage("TestTable", (string)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void Name()
         {
             var name = Guid.NewGuid().ToString();
@@ -75,7 +74,7 @@
             Assert.AreEqual(name, t.Name);
         }
 
-        [Test]
+        [Fact]
         public void Client()
         {
             var name = Guid.NewGuid().ToString();
@@ -83,7 +82,7 @@
             Assert.IsNotNull(t.Client);
         }
 
-        [Test]
+        [Fact]
         public void Reference()
         {
             var name = Guid.NewGuid().ToString();
@@ -91,7 +90,7 @@
             Assert.IsNotNull(t.Reference);
         }
 
-        [Test]
+        [Fact]
         public void InsertDictionaryNull()
         {
             var name = Guid.NewGuid().ToString();
@@ -100,7 +99,7 @@
             Assert.That(() => t.InsertOrReplace((IDictionary<string, object>)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void QueryFunctionNull()
         {
             var name = Guid.NewGuid().ToString();
@@ -110,7 +109,7 @@
         }
 
 
-        [Test]
+        [Fact]
         public void QueryFunctionResultsNegative()
         {
             var name = Guid.NewGuid().ToString();
@@ -119,7 +118,7 @@
             Assert.That(() => t.Query<TableEntity>(i => i.PartitionKey == "hi", -100), Throws.TypeOf<InvalidOperationException>());
         }
 
-        [Test]
+        [Fact]
         public void QueryTableQueryNull()
         {
             var name = Guid.NewGuid().ToString();
@@ -128,7 +127,7 @@
             Assert.That(() => t.Query<TableEntity>(null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void QueryDictionaryQueryNull()
         {
             var name = Guid.NewGuid().ToString();
@@ -137,7 +136,7 @@
             Assert.That(() => t.Query((TableQuery)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void DeleteEntityNull()
         {
             var name = Guid.NewGuid().ToString();
@@ -146,7 +145,7 @@
             Assert.That(() => t.Delete((ITableEntity)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void DeleteEntitiesNull()
         {
             var name = Guid.NewGuid().ToString();
@@ -155,7 +154,7 @@
             Assert.That(() => t.Delete((IEnumerable<ITableEntity>)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void BatchOne()
         {
             var items = new List<ITableEntity>();
@@ -169,7 +168,7 @@
             Assert.AreEqual(1, batches.First().Count());
         }
 
-        [Test]
+        [Fact]
         public void BatchNone()
         {
             var items = new List<ITableEntity>();
@@ -181,7 +180,7 @@
             Assert.AreEqual(0, batches.Count());
         }
 
-        [Test]
+        [Fact]
         public void BatchThousandsDifferentPartitions()
         {
             var random = new Random();
@@ -200,7 +199,7 @@
             Assert.AreEqual(count, batches.Count());
         }
 
-        [Test]
+        [Fact]
         public void BatchThousands()
         {
             var random = new Random();
@@ -226,7 +225,7 @@
             Assert.AreEqual(count, resultCount);
         }
 
-        [Test]
+        [Fact]
         public void ChunkThousands()
         {
             var random = new Random();
@@ -252,7 +251,7 @@
             Assert.AreEqual(count, resultCount);
         }
 
-        [Test]
+        [Fact]
         public void ChunkOne()
         {
             var items = new List<ITableEntity>();
@@ -266,7 +265,7 @@
             Assert.AreEqual(1, batches.First().Count());
         }
 
-        [Test]
+        [Fact]
         public void ChunkNone()
         {
             var items = new List<ITableEntity>();
@@ -278,7 +277,7 @@
             Assert.AreEqual(0, batches.Count());
         }
 
-        [Test]
+        [Fact]
         public void BatchDictionaryOne()
         {
             var items = new List<IDictionary<string, object>>();
@@ -294,7 +293,7 @@
             Assert.AreEqual(1, batches.First().Count());
         }
 
-        [Test]
+        [Fact]
         public void BatchDictionaryNone()
         {
             var items = new List<IDictionary<string, object>>();
@@ -306,7 +305,7 @@
             Assert.AreEqual(0, batches.Count());
         }
 
-        [Test]
+        [Fact]
         public void BatchDictionaryThousandsDifferentPartitions()
         {
             var random = new Random();
@@ -327,7 +326,7 @@
             Assert.AreEqual(count, batches.Count());
         }
 
-        [Test]
+        [Fact]
         public void BatchDictionaryThousands()
         {
             var random = new Random();

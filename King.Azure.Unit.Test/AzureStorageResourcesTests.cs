@@ -8,19 +8,19 @@
     {
         private readonly string ConnectionString = "UseDevelopmentStorage=true;";
 
-        [Test]
+        [Fact]
         public void Constructor()
         {
             new AzureStorageResources(ConnectionString);
         }
 
-        [Test]
+        [Fact]
         public void IsIAzureStorageResources()
         {
             Assert.IsNotNull(new AzureStorageResources(ConnectionString) as IAzureStorageResources);
         }
 
-        [Test]
+        [Fact]
         public void IsAzureStorage()
         {
             Assert.IsNotNull(new AzureStorageResources(ConnectionString) as AzureStorage);

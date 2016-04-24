@@ -40,7 +40,7 @@
             storage.Delete().Wait();
         }
 
-        [Test]
+        [Fact]
         public async Task ConstructorAccount()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -51,7 +51,7 @@
             Assert.IsTrue(created);
         }
 
-        [Test]
+        [Fact]
         public async Task CreateIfNotExists()
         {
             var table = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -63,7 +63,7 @@
             await storage.Delete();
         }
 
-        [Test]
+        [Fact]
         public async Task CreateIfNotExistsAlreadyExists()
         {
             var table = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -77,7 +77,7 @@
             await storage.Delete();
         }
 
-        [Test]
+        [Fact]
         public async Task Create()
         {
             var table = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -89,7 +89,7 @@
             await storage.Delete();
         }
 
-        [Test]
+        [Fact]
         public async Task Delete()
         {
             var table = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -106,7 +106,7 @@
             await storage.Delete();
         }
 
-        [Test]
+        [Fact]
         public async Task Insert()
         {
             var entity = new TableEntity()
@@ -126,7 +126,7 @@
             Assert.AreEqual(entity.RowKey, e.RowKey);
         }
 
-        [Test]
+        [Fact]
         public async Task InsertOrReplace()
         {
             var entity = new TableEntity()
@@ -146,7 +146,7 @@
             Assert.AreEqual(entity.RowKey, e.RowKey);
         }
 
-        [Test]
+        [Fact]
         public async Task InsertBatch()
         {
             var random = new Random();
@@ -169,7 +169,7 @@
             Assert.AreEqual(count, returned.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task InsertBatchMultiplePartitions()
         {
             var random = new Random();
@@ -197,7 +197,7 @@
             Assert.AreEqual(count, returned.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task InsertDictionaryBatch()
         {
             var random = new Random();
@@ -222,7 +222,7 @@
             Assert.AreEqual(count, returned.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task InsertDictionaryBatchMultiplePartitions()
         {
             var random = new Random();
@@ -250,7 +250,7 @@
             Assert.AreEqual(count, returned.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task InsertOrReplaceDictionary()
         {
             var p = Guid.NewGuid().ToString();
@@ -268,7 +268,7 @@
             Assert.AreEqual(entity["Id"], e.Id);
         }
 
-        [Test]
+        [Fact]
         public async Task InsertOrReplaceDictionaryPartitionRowGuid()
         {
             var p = Guid.NewGuid();
@@ -286,7 +286,7 @@
             Assert.AreEqual(entity["Id"], e.Id);
         }
 
-        [Test]
+        [Fact]
         public async Task InsertOrReplaceDictionaryNoRow()
         {
             var p = Guid.NewGuid().ToString();
@@ -301,7 +301,7 @@
             Assert.AreEqual(entity[TableStorage.PartitionKey], e.PartitionKey);
         }
 
-        [Test]
+        [Fact]
         public async Task InsertOrReplaceDictionaryNoPartition()
         {
             var r = Guid.NewGuid().ToString();
@@ -316,7 +316,7 @@
             Assert.AreEqual(entity[TableStorage.RowKey], e.RowKey);
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByPartition()
         {
             var random = new Random();
@@ -349,7 +349,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByRow()
         {
             var random = new Random();
@@ -382,7 +382,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByPartitionAndRow()
         {
             var random = new Random();
@@ -415,7 +415,7 @@
             Assert.AreEqual(z.Id, returned.Id);
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteByPartition()
         {
             var random = new Random();
@@ -441,13 +441,13 @@
             Assert.IsFalse(returned.Any());
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteByPartitionPartitionNull()
         {
             await storage.DeleteByPartition(null);
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteByPartitionAndRow()
         {
             var h = new Helper()
@@ -464,7 +464,7 @@
             Assert.IsNull(returned);
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteEnity()
         {
             var h = new Helper()
@@ -482,7 +482,7 @@
             Assert.IsNull(returned);
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteEnities()
         {
             var random = new Random();
@@ -512,7 +512,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteMultipleBatches()
         {
             var random = new Random();
@@ -545,14 +545,14 @@
             Assert.AreEqual(0, returned.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteEntitiesNone()
         {
             var result = await storage.Delete(new List<TableEntity>());
             Assert.IsNull(result);
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByPartitionPartitionNull()
         {
             var returned = await storage.QueryByPartition<Helper>(null);
@@ -560,7 +560,7 @@
             Assert.IsFalse(returned.Any());
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByRowPartitionNull()
         {
             var returned = await storage.QueryByRow<Helper>(null);
@@ -568,14 +568,14 @@
             Assert.IsFalse(returned.Any());
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByPartitionAndRowPartitionNullRowNull()
         {
             var returned = await storage.QueryByPartitionAndRow<Helper>(null, null);
             Assert.IsNull(returned);
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteByRow()
         {
             var random = new Random();
@@ -599,13 +599,13 @@
             Assert.IsFalse(returned.Any());
         }
 
-        [Test]
+        [Fact]
         public async Task DeleteByRowRowNull()
         {
             await storage.DeleteByRow(null);
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByPartitionGreaterThan1000()
         {
             var random = new Random();
@@ -639,7 +639,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task QueryGreaterThan1000()
         {
             var random = new Random();
@@ -675,7 +675,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task Query()
         {
             var random = new Random();
@@ -712,7 +712,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task QueryFunction()
         {
             var random = new Random();
@@ -745,7 +745,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task QueryFunctionNone()
         {
             var random = new Random();
@@ -769,7 +769,7 @@
             Assert.AreEqual(0, returned.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByPartitionDictionary()
         {
             var random = new Random();
@@ -800,7 +800,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByRowDictionary()
         {
             var random = new Random();
@@ -831,7 +831,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task QueryByPartitionAndRowDictionary()
         {
             var random = new Random();

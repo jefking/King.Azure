@@ -10,7 +10,7 @@
     {
         private const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=kingdottest;AccountKey=raLQzql5BzvYrHGPxZKJIFHDe/B0+kTpJwGokbQHX5p6EVbx8xOt6XbPKJsUWdyOMTYYEKAvZ7ImqFIfpLGOJQ==;FileEndpoint=https://kingdottest.file.core.windows.net/";
 
-        [Test]
+        [Fact]
         public async Task CreateIfNotExists()
         {
             var random = new Random();

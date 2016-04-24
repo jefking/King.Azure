@@ -11,7 +11,7 @@
     {
         private readonly string ConnectionString = "UseDevelopmentStorage=true;";
 
-        [Test]
+        [Fact]
         public async Task TableNames()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -24,7 +24,7 @@
             Assert.IsTrue(tables.Contains(name));
         }
 
-        [Test]
+        [Fact]
         public async Task Tables()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -41,7 +41,7 @@
             Assert.IsTrue(exists);
         }
 
-        [Test]
+        [Fact]
         public async Task QueueNames()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -54,7 +54,7 @@
             Assert.IsTrue(queues.Contains(name));
         }
 
-        [Test]
+        [Fact]
         public async Task Queues()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -73,7 +73,7 @@
             await storage.Delete();
         }
 
-        [Test]
+        [Fact]
         public async Task ContainerNames()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -86,7 +86,7 @@
             Assert.IsTrue(containers.Contains(name));
         }
 
-        [Test]
+        [Fact]
         public async Task Containers()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');

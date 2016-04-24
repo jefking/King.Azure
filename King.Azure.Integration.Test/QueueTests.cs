@@ -29,7 +29,7 @@
             storage.Delete().Wait();
         }
 
-        [Test]
+        [Fact]
         public async Task CreateIfNotExists()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -39,7 +39,7 @@
             Assert.IsTrue(created);
         }
 
-        [Test]
+        [Fact]
         public async Task ConstructorAccount()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -50,7 +50,7 @@
             Assert.IsTrue(created);
         }
 
-        [Test]
+        [Fact]
         public async Task RoundTrip()
         {
             var storage = new StorageQueue(QueueName, ConnectionString);
@@ -62,7 +62,7 @@
             Assert.AreEqual(msg.AsBytes, returned.AsBytes);
         }
 
-        [Test]
+        [Fact]
         public async Task RoundTripMsgAsObj()
         {
             var storage = new StorageQueue(QueueName, ConnectionString);
@@ -74,7 +74,7 @@
             Assert.AreEqual(msg.AsBytes, returned.AsBytes);
         }
         
-        [Test]
+        [Fact]
         public async Task RoundTripObject()
         {
             var storage = new StorageQueue(QueueName, ConnectionString);
@@ -88,7 +88,7 @@
             Assert.AreEqual(expected, guid);
         }
         
-        [Test]
+        [Fact]
         public async Task ApproixmateMessageCount()
         {
             var random = new Random();
@@ -103,7 +103,7 @@
             Assert.AreEqual(count, result);
         }
 
-        [Test]
+        [Fact]
         public async Task ApproixmateMessageCountNone()
         {
             var storage = new StorageQueue(QueueName, ConnectionString);
@@ -111,7 +111,7 @@
             Assert.AreEqual(0, result);
         }
 
-        [Test]
+        [Fact]
         public async Task Delete()
         {
             var storage = new StorageQueue(QueueName, ConnectionString);
@@ -122,7 +122,7 @@
             await storage.Delete(returned);
         }
 
-        [Test]
+        [Fact]
         public async Task RoundTripMany()
         {
             var random = new Random();
@@ -141,7 +141,7 @@
             Assert.AreEqual(count, returned.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task GetManyNegative()
         {
             var random = new Random();

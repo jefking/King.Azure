@@ -257,9 +257,6 @@
         "runtime": {
           "lib/net45/xunit.execution.desktop.dll": {}
         }
-      },
-      "xunit.runner.dnx/2.1.0-rc1-build204": {
-        "type": "package"
       }
     },
     ".NETPlatform,Version=v5.4": {
@@ -1145,9 +1142,6 @@
         "runtime": {
           "lib/dotnet/xunit.execution.dotnet.dll": {}
         }
-      },
-      "xunit.runner.dnx/2.1.0-rc1-build204": {
-        "type": "package"
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x86": {
@@ -1405,9 +1399,6 @@
         "runtime": {
           "lib/net45/xunit.execution.desktop.dll": {}
         }
-      },
-      "xunit.runner.dnx/2.1.0-rc1-build204": {
-        "type": "package"
       }
     },
     ".NETFramework,Version=v4.5.1/win7-x64": {
@@ -1665,9 +1656,6 @@
         "runtime": {
           "lib/net45/xunit.execution.desktop.dll": {}
         }
-      },
-      "xunit.runner.dnx/2.1.0-rc1-build204": {
-        "type": "package"
       }
     },
     ".NETPlatform,Version=v5.4/win7-x86": {
@@ -2582,9 +2570,6 @@
         "runtime": {
           "lib/dotnet/xunit.execution.dotnet.dll": {}
         }
-      },
-      "xunit.runner.dnx/2.1.0-rc1-build204": {
-        "type": "package"
       }
     },
     ".NETPlatform,Version=v5.4/win7-x64": {
@@ -3499,9 +3484,6 @@
         "runtime": {
           "lib/dotnet/xunit.execution.dotnet.dll": {}
         }
-      },
-      "xunit.runner.dnx/2.1.0-rc1-build204": {
-        "type": "package"
       }
     }
   },
@@ -5268,26 +5250,12 @@
         "xunit.extensibility.execution.2.1.0.nupkg.sha512",
         "xunit.extensibility.execution.nuspec"
       ]
-    },
-    "xunit.runner.dnx/2.1.0-rc1-build204": {
-      "type": "package",
-      "sha512": "GUtWIQN3h7QGJdp5RTgvbPVjdWC7tXIRZhzpW8txNDC9nbMph4/TWbVEZKCGUOsLvE5BZg3icRGb6JR3ZwBADA==",
-      "files": [
-        "lib/dnx451/xunit.runner.dnx.dll",
-        "lib/dnx451/xunit.runner.dnx.xml",
-        "lib/dnxcore50/xunit.runner.dnx.dll",
-        "lib/dnxcore50/xunit.runner.dnx.xml",
-        "xunit.runner.dnx.2.1.0-rc1-build204.nupkg",
-        "xunit.runner.dnx.2.1.0-rc1-build204.nupkg.sha512",
-        "xunit.runner.dnx.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "WindowsAzure.Storage >= 7.0.1-preview",
-      "xunit >= 2.1.0",
-      "xunit.runner.dnx >= 2.1.0-rc1-build204"
+      "xunit >= 2.1.0"
     ],
     ".NETFramework,Version=v4.5.1": [],
     ".NETPlatform,Version=v5.4": [

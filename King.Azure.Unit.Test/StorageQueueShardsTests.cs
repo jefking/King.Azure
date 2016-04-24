@@ -13,57 +13,57 @@
     {
         private const string ConnectionString = "UseDevelopmentStorage=true;";
 
-        [Test]
+        [Fact]
         public void Constructor()
         {
             var sqs = new StorageQueueShards("test", ConnectionString, 2);
             Assert.AreEqual(2, sqs.Queues.Count());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorConnectionNull()
         {
             Assert.That(() => new StorageQueueShards("test", null), Throws.TypeOf<ArgumentException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorNameNull()
         {
             Assert.That(() => new StorageQueueShards(null, ConnectionString), Throws.TypeOf<ArgumentException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorQueuesNull()
         {
             Assert.That(() => new StorageQueueShards(null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorQueuesEmpty()
         {
             Assert.That(() => new StorageQueueShards(new IStorageQueue[0]), Throws.TypeOf<ArgumentException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorShardDefault()
         {
             var sqs = new StorageQueueShards("test", ConnectionString);
             Assert.AreEqual(2, sqs.Queues.Count());
         }
 
-        [Test]
+        [Fact]
         public void IsIQueueShardSender()
         {
             Assert.IsNotNull(new StorageQueueShards("test", ConnectionString) as IQueueShardSender<IStorageQueue>);
         }
 
-        [Test]
+        [Fact]
         public void IsIAzureStorage()
         {
             Assert.IsNotNull(new StorageQueueShards("test", ConnectionString) as IAzureStorage);
         }
 
-        [Test]
+        [Fact]
         public void Name()
         {
             var name = Guid.NewGuid().ToString();
@@ -71,7 +71,7 @@
             Assert.AreEqual(name, sqs.Name);
         }
 
-        [Test]
+        [Fact]
         public void Queues()
         {
             var random = new Random();
@@ -81,7 +81,7 @@
             Assert.AreEqual(i, sqs.Queues.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task CreateIfNotExists()
         {
             var random = new Random();
@@ -104,7 +104,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task Delete()
         {
             var random = new Random();
@@ -126,7 +126,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task Save()
         {
             var random = new Random();
@@ -160,7 +160,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public void Index()
         {
             var msg = new object();
@@ -178,7 +178,7 @@
             Assert.IsTrue(0 <= index && 3 > index);
         }
         
-        [Test]
+        [Fact]
         public void IndexBad([Values(0,255)] int val, [Values(0,0)] int expected)
         {
             var msg = new object();

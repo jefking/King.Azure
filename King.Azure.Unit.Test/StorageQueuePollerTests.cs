@@ -14,25 +14,25 @@
     {
         const string ConnectionString = "UseDevelopmentStorage=true";
 
-        [Test]
+        [Fact]
         public void Constructor()
         {
             new StorageQueuePoller<object>("queue", ConnectionString);
         }
 
-        [Test]
+        [Fact]
         public void ConstructorStorageQueueNull()
         {
             Assert.That(() => new StorageQueuePoller<object>(null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void IsIStorageQueuePoller()
         {
             Assert.IsNotNull(new StorageQueuePoller<object>("queue", ConnectionString) as IStorageQueuePoller<object>);
         }
 
-        [Test]
+        [Fact]
         public void Queue()
         {
             var queue = Substitute.For<IStorageQueue>();
@@ -41,7 +41,7 @@
             Assert.AreEqual(queue, returned);
         }
 
-        [Test]
+        [Fact]
         public async Task Poll()
         {
             var msg = new CloudQueueMessage("data");
@@ -56,7 +56,7 @@
             await queue.Received().Get();
         }
 
-        [Test]
+        [Fact]
         public async Task PollGetNull()
         {
             var queue = Substitute.For<IStorageQueue>();
@@ -70,7 +70,7 @@
             await queue.Received().Get();
         }
 
-        [Test]
+        [Fact]
         public void PollGetThrows()
         {
             var msg = new CloudQueueMessage("data");
@@ -82,7 +82,7 @@
             Assert.That(() => poller.Poll(), Throws.TypeOf<ApplicationException>());
         }
 
-        [Test]
+        [Fact]
         public async Task PollMany()
         {
             var msg = new CloudQueueMessage("data");
@@ -103,7 +103,7 @@
             await queue.Received().GetMany(3);
         }
 
-        [Test]
+        [Fact]
         public async Task PollGetManyNull()
         {
             var queue = Substitute.For<IStorageQueue>();
@@ -117,7 +117,7 @@
             await queue.Received().GetMany(3);
         }
 
-        [Test]
+        [Fact]
         public void PollGetManyThrows()
         {
             var msg = new CloudQueueMessage("data");

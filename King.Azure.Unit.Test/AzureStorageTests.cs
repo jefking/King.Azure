@@ -10,25 +10,25 @@
     {
         const string ConnectionString = "UseDevelopmentStorage=true";
 
-        [Test]
+        [Fact]
         public void Constructor()
         {
             new AzureStorage(ConnectionString);
         }
 
-        [Test]
+        [Fact]
         public void IsIStorageAccount()
         {
             Assert.IsNotNull(new AzureStorage(ConnectionString) as IStorageAccount);
         }
 
-        [Test]
+        [Fact]
         public void ConstructorConnectionStringNull()
         {
             Assert.That(() => new AzureStorage((string)null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorAccountNull()
         {
             Assert.That(() => new AzureStorage((CloudStorageAccount)null), Throws.TypeOf<ArgumentNullException>());

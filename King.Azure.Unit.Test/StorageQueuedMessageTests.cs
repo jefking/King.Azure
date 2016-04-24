@@ -20,14 +20,14 @@
             }
         }
 
-        [Test]
+        [Fact]
         public void Constructor()
         {
             var queue = Substitute.For<IStorageQueue>();
             new StorageQueuedMessage<object>(queue, new CloudQueueMessage("ship"));
         }
 
-        [Test]
+        [Fact]
         public void ConstructorQueueNull()
         {
             var message = new CloudQueueMessage("ship");
@@ -35,7 +35,7 @@
             Assert.That(() => new StorageQueuedMessage<object>(null, message), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public void ConstructorMessageNull()
         {
             var queue = Substitute.For<IStorageQueue>();
@@ -43,7 +43,7 @@
             Assert.That(() => new StorageQueuedMessage<object>(queue, null), Throws.TypeOf<ArgumentNullException>());
         }
 
-        [Test]
+        [Fact]
         public async Task Complete()
         {
             var queue = Substitute.For<IStorageQueue>();
@@ -56,7 +56,7 @@
             await queue.Received().Delete(message);
         }
 
-        [Test]
+        [Fact]
         public async Task Abandon()
         {
             var queue = Substitute.For<IStorageQueue>();
@@ -66,7 +66,7 @@
             await sqm.Abandon();
         }
 
-        [Test]
+        [Fact]
         public async Task Data()
         {
             var expected = new Helper()

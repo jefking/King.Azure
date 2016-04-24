@@ -40,7 +40,7 @@
             storage.Delete().Wait();
         }
 
-        [Test]
+        [Fact]
         public async Task ConstructorAccount()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -51,7 +51,7 @@
             Assert.IsTrue(created);
         }
 
-        [Test]
+        [Fact]
         public async Task CreateIfNotExists()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -66,7 +66,7 @@
             Assert.AreEqual(BlobContainerPublicAccessType.Off, permissions.PublicAccess);
         }
 
-        [Test]
+        [Fact]
         public async Task CreateIfNotExistsPublic()
         {
             var name = 'a' + Guid.NewGuid().ToString().ToLowerInvariant().Replace('-', 'a');
@@ -81,7 +81,7 @@
             Assert.AreEqual(BlobContainerPublicAccessType.Blob, permissions.PublicAccess);
         }
 
-        [Test]
+        [Fact]
         public async Task Exists()
         {
             var blobName = Guid.NewGuid().ToString();
@@ -92,7 +92,7 @@
             Assert.IsTrue(exists);
         }
 
-        [Test]
+        [Fact]
         public async Task ExistsNo()
         {
             var blobName = Guid.NewGuid().ToString();
@@ -103,7 +103,7 @@
             Assert.IsFalse(exists);
         }
 
-        [Test]
+        [Fact]
         public async Task GetBlockReference()
         {
             var name = string.Format("{0}.bin", Guid.NewGuid());
@@ -115,7 +115,7 @@
             Assert.IsTrue(block.Exists());
         }
 
-        [Test]
+        [Fact]
         public async Task GetPageReference()
         {
             var random = new Random();
@@ -133,7 +133,7 @@
             Assert.IsTrue(page.Exists());
         }
 
-        [Test]
+        [Fact]
         public async Task RoundTripObject()
         {
             var helper = new Helper()
@@ -155,7 +155,7 @@
             Assert.AreEqual("application/json", properties.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task RoundTripText()
         {
             var data = Guid.NewGuid().ToString();
@@ -173,7 +173,7 @@
             Assert.AreEqual("text/plain", properties.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task JsonContentType()
         {
             var helper = new Helper()
@@ -191,7 +191,7 @@
             Assert.AreEqual("application/json", returned.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task RoundTripBytes()
         {
             var random = new Random();
@@ -213,7 +213,7 @@
             Assert.AreEqual("application/octet-stream", properties.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task RoundTripStream()
         {
             var random = new Random();
@@ -234,7 +234,7 @@
             }
         }
 
-        [Test]
+        [Fact]
         public async Task BytesDefaultContentType()
         {
             var random = new Random();
@@ -252,7 +252,7 @@
             Assert.AreEqual("application/octet-stream", returned.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task BytesContentType()
         {
             var random = new Random();
@@ -270,7 +270,7 @@
             Assert.AreEqual("application/pdf", returned.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task Delete()
         {
             var helper = new Helper()
@@ -287,7 +287,7 @@
             Assert.That(() => storage.Get<Helper>(blobName), Throws.TypeOf<StorageException>());
         }
 
-        [Test]
+        [Fact]
         public async Task List()
         {
             var random = new Random();
@@ -305,7 +305,7 @@
             Assert.AreEqual(count, blobs.Count());
         }
 
-        [Test]
+        [Fact]
         public async Task SnapShotPageBlob()
         {
             var random = new Random();
@@ -326,7 +326,7 @@
             Assert.IsTrue(returned.IsSnapshot);
         }
 
-        [Test]
+        [Fact]
         public async Task SnapShotBlockBlob()
         {
             var random = new Random();
@@ -345,7 +345,7 @@
             Assert.IsTrue(returned.IsSnapshot);
         }
 
-        [Test]
+        [Fact]
         public async Task SnapShoAndDelete()
         {
             var random = new Random();
@@ -360,7 +360,7 @@
             await storage.Delete(name);
         }
 
-        [Test]
+        [Fact]
         public async Task SnapShoAndDeleteSafe()
         {
             var random = new Random();
@@ -376,7 +376,7 @@
             Assert.That(() => storage.Delete(name, false), Throws.TypeOf<StorageException>());
         }
 
-        [Test]
+        [Fact]
         public async Task SnapshotNonExistant()
         {
             var blob = Guid.NewGuid().ToString();
@@ -384,7 +384,7 @@
             Assert.IsNull(await storage.Snapshot(blob));
         }
 
-        [Test]
+        [Fact]
         public async Task DontLoseContentType()
         {
             var cache = "public, max-age=31536000";
@@ -401,7 +401,7 @@
             Assert.AreEqual(contentType, returned.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task DontLoseCacheControl()
         {
             var cache = "public, max-age=31536000";
@@ -419,7 +419,7 @@
             Assert.AreEqual(contentType, returned.ContentType);
         }
 
-        [Test]
+        [Fact]
         public async Task SetCacheControlDefault()
         {
             var cache = "public, max-age=31536000";
@@ -434,7 +434,7 @@
             Assert.AreEqual(cache, returned.CacheControl);
         }
 
-        [Test]
+        [Fact]
         public async Task SetCacheControlZero()
         {
             var cache = "public, max-age=31536000";
@@ -449,7 +449,7 @@
             Assert.AreEqual(cache, returned.CacheControl);
         }
 
-        [Test]
+        [Fact]
         public async Task SetCacheControl()
         {
             var cache = "public, max-age=1000";
@@ -464,7 +464,7 @@
             Assert.AreEqual(cache, returned.CacheControl);
         }
 
-        [Test]
+        [Fact]
         public async Task CopyToFrom()
         {
             var random = new Random();
@@ -488,7 +488,7 @@
             await storage.Delete(to);
         }
 
-        [Test]
+        [Fact]
         public async Task Copy()
         {
             var random = new Random();
@@ -517,7 +517,7 @@
             await toContainer.Delete();
         }
 
-        [Test]
+        [Fact]
         public async Task CopyContainerName()
         {
             var random = new Random();
