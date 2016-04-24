@@ -9,7 +9,7 @@
     using Microsoft.WindowsAzure.Storage.Blob;
     using NUnit.Framework;
 
-    [TestFixture]
+    
     public class ContainerTests
     {
         private readonly string ConnectionString = "UseDevelopmentStorage=true;";

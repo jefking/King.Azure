@@ -5,7 +5,7 @@
     using Microsoft.WindowsAzure.Storage;
     using NUnit.Framework;
 
-    [TestFixture]
+    
     public class AzureStorageTests
     {
         const string ConnectionString = "UseDevelopmentStorage=true";

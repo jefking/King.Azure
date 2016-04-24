@@ -1,13 +1,10 @@
 ﻿namespace King.Azure.Integration.Test
 {
-    using NUnit.Framework;
     using System.Configuration;
     using System.Diagnostics;
-
-    [SetUpFixture]
+    
     public class Initialization
     {
-        [OneTimeSetUp]
         public static void SetUp()
         {
             var emulator = ConfigurationManager.AppSettings["AzureEmulator"];

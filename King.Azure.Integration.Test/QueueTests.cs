@@ -7,22 +7,20 @@
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Queue;
     using Newtonsoft.Json;
-    using NUnit.Framework;
-
-    [TestFixture]
+    
     public class QueueTests
     {
         private const string ConnectionString = "UseDevelopmentStorage=true;";
         private const string QueueName = "testing";
 
-        [SetUp]
+        //[SetUp]
         public void SetUp()
         {
             var storage = new StorageQueue(QueueName, ConnectionString);
             storage.CreateIfNotExists().Wait();
         }
 
-        [TearDown]
+        //[TearDown]
         public void TearDown()
         {
             var storage = new StorageQueue(QueueName, ConnectionString);

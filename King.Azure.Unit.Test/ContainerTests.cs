@@ -5,7 +5,7 @@
     using NUnit.Framework;
     using System;
 
-    [TestFixture]
+    
     public class ContainerTests
     {
         private const string ConnectionString = "UseDevelopmentStorage=true;";

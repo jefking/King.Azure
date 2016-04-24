@@ -3,7 +3,7 @@
     using King.Azure.Data;
     using NUnit.Framework;
 
-    [TestFixture]
+    
     public class AzureStorageResourcesTests
     {
         private readonly string ConnectionString = "UseDevelopmentStorage=true;";

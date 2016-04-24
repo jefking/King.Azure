@@ -8,7 +8,7 @@
     using NSubstitute;
     using NUnit.Framework;
 
-    [TestFixture]
+    
     public class StorageQueuedMessageTests
     {
         public class Helper
