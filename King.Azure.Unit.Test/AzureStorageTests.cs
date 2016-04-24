@@ -3,9 +3,8 @@
     using System;
     using King.Azure.Data;
     using Microsoft.WindowsAzure.Storage;
-    
+    using Xunit;
 
-    
     public class AzureStorageTests
     {
         const string ConnectionString = "UseDevelopmentStorage=true";
