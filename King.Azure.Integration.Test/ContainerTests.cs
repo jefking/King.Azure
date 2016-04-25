@@ -7,8 +7,7 @@
     using King.Azure.Data;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
-    
-
+    using Xunit;
     
     public class ContainerTests
     {
