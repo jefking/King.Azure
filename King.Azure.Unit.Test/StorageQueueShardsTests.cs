@@ -1,12 +1,12 @@
 ﻿namespace King.Azure.Unit.Test.Data
 {
     using King.Azure.Data;
-    using NSubstitute;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Xunit;
+
     public class StorageQueueShardsTests
     {
         private const string ConnectionString = "UseDevelopmentStorage=true;";

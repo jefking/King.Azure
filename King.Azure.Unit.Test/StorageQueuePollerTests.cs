@@ -2,7 +2,6 @@
 {
     using King.Azure.Data;
     using Microsoft.WindowsAzure.Storage.Queue;
-    using NSubstitute;
     using System;
     using System.Collections.Generic;
     using System.Linq;

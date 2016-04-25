@@ -404,9 +404,9 @@
 
             //return await this.Query<T>(query);
 
-            throw new InvalidOperationException("Not Implemented");
+            await Task.FromResult<bool>(false);
 
-            return await this.Query<T>(null);
+            throw new InvalidOperationException("Not Implemented");
         }
 
         /// <summary>
