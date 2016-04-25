@@ -15,7 +15,11 @@
   },
 
   "frameworks": {
-    "net451": { },
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Runtime":"4.0.10.0" 
+      }
+    },
     "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
