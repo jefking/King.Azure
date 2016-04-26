@@ -34,7 +34,7 @@
             var storage = new StorageQueue(name, ConnectionString);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
         }
 
         [Fact]
@@ -45,7 +45,7 @@
             var storage = new StorageQueue(name, account, TimeSpan.FromSeconds(34));
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
         }
 
         [Fact]

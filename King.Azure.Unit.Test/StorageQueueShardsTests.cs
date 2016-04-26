@@ -96,7 +96,7 @@
             var sqs = new StorageQueueShards(qs.ToArray());
 
             var success = await sqs.CreateIfNotExists();
-            //Assert.IsTrue(success);
+            Assert.True(success);
 
             foreach (var q in qs)
             {
@@ -175,7 +175,7 @@
 
             var index = sqs.Index(0);
 
-            //Assert.IsTrue(0 <= index && 3 > index);
+            Assert.True(0 <= index && 3 > index);
         }
         
         //[Fact]

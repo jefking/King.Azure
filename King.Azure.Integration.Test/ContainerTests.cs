@@ -8,7 +8,6 @@
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     using Xunit;
-    using System.Linq;
 
     public class ContainerTests
     {
@@ -48,7 +47,7 @@
             var storage = new Container(name, account);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
         }
 
         [Fact]
@@ -58,7 +57,7 @@
             var storage = new Container(name, ConnectionString);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
 
             var blobClient = storage.Account.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference(name);
@@ -73,7 +72,7 @@
             var storage = new Container(name, ConnectionString, true);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
 
             var blobClient = storage.Account.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference(name);
@@ -89,7 +88,7 @@
             await storage.Save(blobName, Guid.NewGuid());
             var exists = await storage.Exists(blobName);
 
-            //Assert.IsTrue(exists);
+            Assert.True(exists);
         }
 
         [Fact]
@@ -112,7 +111,7 @@
 
             var block = storage.GetBlockReference(name);
             //Assert.IsNotNull(block);
-            //Assert.IsTrue(block.Exists());
+            //Assert.True(block.Exists());
         }
 
         [Fact]
@@ -130,7 +129,7 @@
 
             var page = storage.GetPageReference(name);
             //Assert.IsNotNull(page);
-            //Assert.IsTrue(page.Exists());
+            //Assert.True(page.Exists());
         }
 
         [Fact]
@@ -319,11 +318,11 @@
             await blob.UploadFromByteArrayAsync(bytes, 0, bytes.Length);
 
             var snapshot = await storage.Snapshot(name);
-            //Assert.IsTrue(snapshot.IsSnapshot);
+            Assert.True(snapshot.IsSnapshot);
 
             var returned = storage.GetPageReference(snapshot.Name, snapshot.SnapshotTime);
             //Assert.IsNotNull(returned);
-            //Assert.IsTrue(returned.IsSnapshot);
+            Assert.True(returned.IsSnapshot);
         }
 
         [Fact]
@@ -338,11 +337,11 @@
             await storage.Save(name, bytes);
 
             var snapshot = await storage.Snapshot(name);
-            //Assert.IsTrue(snapshot.IsSnapshot);
+            Assert.True(snapshot.IsSnapshot);
 
             var returned = storage.GetPageReference(snapshot.Name, snapshot.SnapshotTime);
             //Assert.IsNotNull(returned);
-            //Assert.IsTrue(returned.IsSnapshot);
+            Assert.True(returned.IsSnapshot);
         }
 
         [Fact]

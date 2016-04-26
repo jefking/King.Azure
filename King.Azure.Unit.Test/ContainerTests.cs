@@ -65,7 +65,7 @@
         {
             var name = Guid.NewGuid().ToString();
             var t = new Container(name, ConnectionString, true);
-            //Assert.IsTrue(t.IsPublic);
+            Assert.True(t.IsPublic);
         }
 
         [Fact]

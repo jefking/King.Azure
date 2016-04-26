@@ -16,7 +16,7 @@
             var storage = new FileShare(string.Format("a{0}b", random.Next()), ConnectionString);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
         }
     }
 }

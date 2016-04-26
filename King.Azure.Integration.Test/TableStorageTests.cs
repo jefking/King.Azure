@@ -48,7 +48,7 @@
             var storage = new TableStorage(name, account);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
         }
 
         [Fact]
@@ -58,7 +58,7 @@
             var storage = new TableStorage(table, ConnectionString);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
 
             await storage.Delete();
         }
@@ -70,7 +70,7 @@
             var storage = new TableStorage(table, ConnectionString);
             var created = await storage.CreateIfNotExists();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
             created = await storage.CreateIfNotExists();
             //Assert.IsFalse(created);
 
@@ -84,7 +84,7 @@
             var storage = new TableStorage(table, ConnectionString);
             var created = await storage.Create();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
 
             await storage.Delete();
         }
@@ -96,12 +96,12 @@
             var storage = new TableStorage(table, ConnectionString);
             var created = await storage.Create();
 
-            //Assert.IsTrue(created);
+            Assert.True(created);
 
             await storage.Delete();
 
             created = await storage.Create();
-            //Assert.IsTrue(created);
+            Assert.True(created);
 
             await storage.Delete();
         }
@@ -345,7 +345,7 @@
                               where e.RowKey == r.RowKey
                               && e.Id == r.Id
                               select true).FirstOrDefault();
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
@@ -378,7 +378,7 @@
                               where e.RowKey == r.RowKey
                               && e.Id == r.Id
                               select true).FirstOrDefault();
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
@@ -635,7 +635,7 @@
                               where e.RowKey == r.RowKey
                               && e.Id == r.Id
                               select true).FirstOrDefault();
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
@@ -671,7 +671,7 @@
                               where e.RowKey == (string)r[TableStorage.RowKey]
                               select true).FirstOrDefault();
 
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
@@ -708,7 +708,7 @@
                                 && !string.IsNullOrWhiteSpace((string)r[TableStorage.ETag])
                                 && DateTime.UtcNow.Date == ((DateTime)r[TableStorage.Timestamp]).Date
                               select true).FirstOrDefault();
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
@@ -741,7 +741,7 @@
                                 && r.PartitionKey == (string)e[TableStorage.PartitionKey]
                               select true).FirstOrDefault();
 
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
@@ -796,7 +796,7 @@
                               where (string)e[TableStorage.RowKey] == (string)r[TableStorage.RowKey]
                                 && (Guid)e["Id"] == (Guid)r["Id"]
                               select true).FirstOrDefault();
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
@@ -827,7 +827,7 @@
                               where (string)e[TableStorage.RowKey] == (string)r[TableStorage.RowKey]
                                 && (Guid)e["Id"] == (Guid)r["Id"]
                               select true).FirstOrDefault();
-                //Assert.IsTrue(exists);
+                Assert.True(exists);
             }
         }
 
