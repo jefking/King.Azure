@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("King.Azure.Data")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("King.Azure")]
+[assembly: AssemblyDescription("King Azure Storage Library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("King.Azure.Data")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyProduct("King.Azure")]
+[assembly: AssemblyCopyright("Copyright © Jef King 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-[assembly: Guid("8739b3d6-3a3c-4224-aa31-918e90d2461a")]
+[assembly: Guid("4e7ae8fe-0ee3-44a4-bae7-2ea46062c10e")]
+[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]
