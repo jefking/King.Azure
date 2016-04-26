@@ -8,7 +8,8 @@
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     using Xunit;
-    
+    using System.Linq;
+
     public class ContainerTests
     {
         private readonly string ConnectionString = "UseDevelopmentStorage=true;";
@@ -62,7 +63,7 @@
             var blobClient = storage.Account.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference(name);
             var permissions = await container.GetPermissionsAsync();
-            //Assert.AreEqual(BlobContainerPublicAccessType.Off, permissions.PublicAccess);
+            Assert.Equal(BlobContainerPublicAccessType.Off, permissions.PublicAccess);
         }
 
         [Fact]
@@ -77,7 +78,7 @@
             var blobClient = storage.Account.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference(name);
             var permissions = await container.GetPermissionsAsync();
-            //Assert.AreEqual(BlobContainerPublicAccessType.Blob, permissions.PublicAccess);
+            Assert.Equal(BlobContainerPublicAccessType.Blob, permissions.PublicAccess);
         }
 
         [Fact]
@@ -147,11 +148,11 @@
             var returned = await storage.Get<Helper>(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(helper.Id, returned.Id);
+            Assert.Equal(helper.Id, returned.Id);
 
             var properties = await storage.Properties(blobName);
             //Assert.IsNotNull(properties);
-            //Assert.AreEqual("application/json", properties.ContentType);
+            Assert.Equal("application/json", properties.ContentType);
         }
 
         [Fact]
@@ -165,11 +166,11 @@
             var returned = await storage.GetText(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(data, returned);
+            Assert.Equal(data, returned);
 
             var properties = await storage.Properties(blobName);
             //Assert.IsNotNull(properties);
-            //Assert.AreEqual("text/plain", properties.ContentType);
+            Assert.Equal("text/plain", properties.ContentType);
         }
 
         [Fact]
@@ -187,7 +188,7 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual("application/json", returned.ContentType);
+            Assert.Equal("application/json", returned.ContentType);
         }
 
         [Fact]
@@ -204,12 +205,12 @@
             var returned = await storage.Get(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(bytes.Length, returned.Length);
-            //Assert.AreEqual(bytes, returned);
+            Assert.Equal(bytes.Length, returned.Length);
+            Assert.Equal(bytes, returned);
 
             var properties = await storage.Properties(blobName);
             //Assert.IsNotNull(properties);
-            //Assert.AreEqual("application/octet-stream", properties.ContentType);
+            Assert.Equal("application/octet-stream", properties.ContentType);
         }
 
         [Fact]
@@ -228,8 +229,8 @@
                 var stored = returned.ToArray();
 
                 //Assert.IsNotNull(stored);
-                //Assert.AreEqual(bytes.Length, stored.Length);
-                //Assert.AreEqual(bytes, stored);
+                Assert.Equal(bytes.Length, stored.Length);
+                Assert.Equal(bytes, stored);
             }
         }
 
@@ -247,8 +248,8 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(bytes.Length, returned.Length);
-            //Assert.AreEqual("application/octet-stream", returned.ContentType);
+            Assert.Equal(bytes.Length, returned.Length);
+            Assert.Equal("application/octet-stream", returned.ContentType);
         }
 
         [Fact]
@@ -265,8 +266,8 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(bytes.Length, returned.Length);
-            //Assert.AreEqual("application/pdf", returned.ContentType);
+            Assert.Equal(bytes.Length, returned.Length);
+            Assert.Equal("application/pdf", returned.ContentType);
         }
 
         [Fact]
@@ -301,7 +302,7 @@
             }
 
             var blobs = storage.List();
-            //Assert.AreEqual(count, blobs.Count());
+            //Assert.Equal(count, blobs.Count());
         }
 
         [Fact]
@@ -396,8 +397,8 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(cache, returned.CacheControl);
-            //Assert.AreEqual(contentType, returned.ContentType);
+            Assert.Equal(cache, returned.CacheControl);
+            Assert.Equal(contentType, returned.ContentType);
         }
 
         [Fact]
@@ -414,8 +415,8 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(cache, returned.CacheControl);
-            //Assert.AreEqual(contentType, returned.ContentType);
+            Assert.Equal(cache, returned.CacheControl);
+            Assert.Equal(contentType, returned.ContentType);
         }
 
         [Fact]
@@ -430,7 +431,7 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(cache, returned.CacheControl);
+            Assert.Equal(cache, returned.CacheControl);
         }
 
         [Fact]
@@ -445,7 +446,7 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(cache, returned.CacheControl);
+            Assert.Equal(cache, returned.CacheControl);
         }
 
         [Fact]
@@ -460,7 +461,7 @@
             var returned = await storage.Properties(blobName);
 
             //Assert.IsNotNull(returned);
-            //Assert.AreEqual(cache, returned.CacheControl);
+            Assert.Equal(cache, returned.CacheControl);
         }
 
         [Fact]
@@ -481,7 +482,7 @@
 
             var exists = await storage.Exists(to);
             var data = await storage.Get(to);
-            //Assert.AreEqual(bytes, data);
+            Assert.Equal(bytes, data);
 
             await storage.Delete(from);
             await storage.Delete(to);
@@ -509,7 +510,7 @@
 
             var exists = await toContainer.Exists(to);
             var data = await toContainer.Get(to);
-            //Assert.AreEqual(bytes, data);
+            Assert.Equal(bytes, data);
 
             await storage.Delete(from);
             await toContainer.Delete(to);
@@ -538,7 +539,7 @@
 
             var exists = await toContainer.Exists(to);
             var data = await toContainer.Get(to);
-            //Assert.AreEqual(bytes, data);
+            Assert.Equal(bytes, data);
 
             await storage.Delete(from);
             await toContainer.Delete(to);

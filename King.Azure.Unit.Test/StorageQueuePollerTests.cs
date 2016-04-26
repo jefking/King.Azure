@@ -36,7 +36,7 @@
             //var queue = Substitute.For<IStorageQueue>();
             //var poller = new StorageQueuePoller<object>(queue);
             //var returned = poller.Queue;
-            //Assert.AreEqual(queue, returned);
+            //Assert.Equal(queue, returned);
         }
 
         //[Fact]

@@ -27,25 +27,25 @@
         [Fact]
         public void PartitionKey()
         {
-            //Assert.AreEqual("PartitionKey", TableStorage.PartitionKey);
+            Assert.Equal("PartitionKey", TableStorage.PartitionKey);
         }
 
         [Fact]
         public void RowKey()
         {
-            //Assert.AreEqual("RowKey", TableStorage.RowKey);
+            Assert.Equal("RowKey", TableStorage.RowKey);
         }
 
         [Fact]
         public void Timestamp()
         {
-            //Assert.AreEqual("Timestamp", TableStorage.Timestamp);
+            Assert.Equal("Timestamp", TableStorage.Timestamp);
         }
 
         [Fact]
         public void ETag()
         {
-            //Assert.AreEqual("ETag", TableStorage.ETag);
+            Assert.Equal("ETag", TableStorage.ETag);
         }
 
         [Fact]
@@ -71,7 +71,7 @@
         {
             var name = Guid.NewGuid().ToString();
             var t = new TableStorage(name, ConnectionString);
-            //Assert.AreEqual(name, t.Name);
+            Assert.Equal(name, t.Name);
         }
 
         [Fact]
@@ -164,8 +164,8 @@
             var t = new TableStorage(name, ConnectionString);
 
             var batches = t.Batch(items);
-            //Assert.AreEqual(1, batches.Count());
-            //Assert.AreEqual(1, batches.First().Count());
+            Assert.Equal(1, batches.Count());
+            Assert.Equal(1, batches.First().Count());
         }
 
         [Fact]
@@ -177,7 +177,7 @@
             var t = new TableStorage(name, ConnectionString);
 
             var batches = t.Batch(items);
-            //Assert.AreEqual(0, batches.Count());
+            Assert.Equal(0, batches.Count());
         }
 
         [Fact]
@@ -196,7 +196,7 @@
             var t = new TableStorage(name, ConnectionString);
 
             var batches = t.Batch(items);
-            //Assert.AreEqual(count, batches.Count());
+            Assert.Equal(count, batches.Count());
         }
 
         [Fact]
@@ -216,7 +216,7 @@
             var t = new TableStorage(name, ConnectionString);
 
             var batches = t.Batch(items);
-            //Assert.AreEqual(Math.Ceiling(((double)count / TableStorage.MaimumxInsertBatch)), batches.Count());
+            Assert.Equal(Math.Ceiling(((double)count / TableStorage.MaimumxInsertBatch)), batches.Count());
 
             var resultCount = 0;
             foreach (var b in batches)
@@ -224,7 +224,7 @@
                 resultCount += b.Count();
             }
 
-            //Assert.AreEqual(count, resultCount);
+            Assert.Equal(count, resultCount);
         }
 
         [Fact]
@@ -244,7 +244,7 @@
             var t = new TableStorage(name, ConnectionString);
 
             var batches = t.Chunk<ITableEntity>(items);
-            //Assert.AreEqual(Math.Ceiling(((double)count / TableStorage.MaimumxInsertBatch)), batches.Count());
+            Assert.Equal(Math.Ceiling(((double)count / TableStorage.MaimumxInsertBatch)), batches.Count());
 
             var resultCount = 0;
             foreach (var b in batches)
@@ -252,7 +252,7 @@
                 resultCount += b.Count();
             }
 
-            //Assert.AreEqual(count, resultCount);
+            Assert.Equal(count, resultCount);
         }
 
         [Fact]
@@ -266,8 +266,8 @@
 
             var batches = t.Chunk<ITableEntity>(items);
 
-            //Assert.AreEqual(1, batches.Count());
-            //Assert.AreEqual(1, batches.First().Count());
+            Assert.Equal(1, batches.Count());
+            Assert.Equal(1, batches.First().Count());
         }
 
         [Fact]
@@ -280,7 +280,7 @@
 
             var batches = t.Chunk<ITableEntity>(items);
 
-            //Assert.AreEqual(0, batches.Count());
+            Assert.Equal(0, batches.Count());
         }
 
         [Fact]
@@ -296,8 +296,8 @@
 
             var batches = t.Batch(items);
 
-            //Assert.AreEqual(1, batches.Count());
-            //Assert.AreEqual(1, batches.First().Count());
+            Assert.Equal(1, batches.Count());
+            Assert.Equal(1, batches.First().Count());
         }
 
         [Fact]
@@ -310,7 +310,7 @@
 
             var batches = t.Batch(items);
 
-            //Assert.AreEqual(0, batches.Count());
+            Assert.Equal(0, batches.Count());
         }
 
         [Fact]
@@ -332,7 +332,7 @@
 
             var batches = t.Batch(items);
 
-            //Assert.AreEqual(count, batches.Count());
+            Assert.Equal(count, batches.Count());
         }
 
         [Fact]
@@ -354,7 +354,7 @@
             var t = new TableStorage(name, ConnectionString);
 
             var batches = t.Batch(items);
-            //Assert.AreEqual(Math.Ceiling(((double)count / TableStorage.MaimumxInsertBatch)), batches.Count());
+            Assert.Equal(Math.Ceiling(((double)count / TableStorage.MaimumxInsertBatch)), batches.Count());
 
             var resultCount = 0;
             foreach (var b in batches)
@@ -362,7 +362,7 @@
                 resultCount += b.Count();
             }
 
-            //Assert.AreEqual(count, resultCount);
+            Assert.Equal(count, resultCount);
         }
     }
 }

@@ -57,7 +57,7 @@
             //await storage.Send(msg);
             //var returned = await storage.Get();
 
-            //Assert.AreEqual(msg.AsBytes, returned.AsBytes);
+            //Assert.Equal(msg.AsBytes, returned.AsBytes);
         }
 
         [Fact]
@@ -67,9 +67,9 @@
 
             //var msg = new CloudQueueMessage(Guid.NewGuid().ToByteArray());
             //await storage.Send((object)msg);
-            var returned = await storage.Get();
+            //var returned = await storage.Get();
 
-            //Assert.AreEqual(msg.AsBytes, returned.AsBytes);
+            //Assert.Equal(msg.AsBytes, returned.AsBytes);
         }
         
         [Fact]
@@ -83,7 +83,7 @@
 
             var guid = JsonConvert.DeserializeObject<Guid>(returned.AsString);
 
-            //Assert.AreEqual(expected, guid);
+            Assert.Equal(expected, guid);
         }
         
         [Fact]
@@ -98,7 +98,7 @@
             }
 
             var result = await storage.ApproixmateMessageCount();
-            //Assert.AreEqual(count, result);
+            Assert.Equal(count, result);
         }
 
         [Fact]
@@ -106,7 +106,7 @@
         {
             var storage = new StorageQueue(QueueName, ConnectionString);
             var result = await storage.ApproixmateMessageCount();
-            //Assert.AreEqual(0, result);
+            Assert.Equal(0, result);
         }
 
         [Fact]
@@ -136,7 +136,7 @@
 
             var returned = await storage.GetMany(count);
 
-            //Assert.AreEqual(count, returned.Count());
+            Assert.Equal(count, returned.Count());
         }
 
         [Fact]
@@ -155,7 +155,7 @@
 
             var returned = await storage.GetMany(-1);
 
-            //Assert.AreEqual(1, returned.Count());
+            Assert.Equal(1, returned.Count());
         }
     }
 }

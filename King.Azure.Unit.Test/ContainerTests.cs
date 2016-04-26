@@ -49,7 +49,7 @@
         [Fact]
         public void DefaultCacheDuration()
         {
-            //Assert.AreEqual(31536000, Container.DefaultCacheDuration);
+            Assert.Equal((uint)31536000, Container.DefaultCacheDuration);
         }
 
         [Fact]
@@ -57,7 +57,7 @@
         {
             var name = Guid.NewGuid().ToString();
             var t = new Container(name, ConnectionString);
-            //Assert.AreEqual(name, t.Name);
+            Assert.Equal(name, t.Name);
         }
 
         [Fact]

@@ -79,7 +79,7 @@
             //var data = await sqm.Data();
 
             //Assert.IsNotNull(data);
-            //Assert.AreEqual(expected.Test, data.Test);
+            //Assert.Equal(expected.Test, data.Test);
         }
     }
 }

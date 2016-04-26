@@ -45,7 +45,7 @@
         {
             var name = Guid.NewGuid().ToString();
             var t = new StorageQueue(name, ConnectionString);
-            //Assert.AreEqual(name, t.Name);
+            Assert.Equal(name, t.Name);
         }
 
         [Fact]

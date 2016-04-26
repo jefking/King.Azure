@@ -15,7 +15,7 @@
         public void Constructor()
         {
             var sqs = new StorageQueueShards("test", ConnectionString, 2);
-            //Assert.AreEqual(2, sqs.Queues.Count());
+            Assert.Equal(2, sqs.Queues.Count());
         }
 
         [Fact]
@@ -46,7 +46,7 @@
         public void ConstructorShardDefault()
         {
             var sqs = new StorageQueueShards("test", ConnectionString);
-            //Assert.AreEqual(2, sqs.Queues.Count());
+            Assert.Equal(2, sqs.Queues.Count());
         }
 
         [Fact]
@@ -67,7 +67,7 @@
             var name = Guid.NewGuid().ToString();
             var sqs = new StorageQueueShards(name, ConnectionString, 2);
 
-            //Assert.AreEqual(name, sqs.Name);
+            Assert.Equal(name, sqs.Name);
         }
 
         [Fact]
@@ -78,7 +78,7 @@
             var sqs = new StorageQueueShards("test", ConnectionString, i);
 
             //Assert.IsNotNull(sqs.Queues);
-            //Assert.AreEqual(i, sqs.Queues.Count());
+            Assert.Equal(i, sqs.Queues.Count());
         }
 
         [Fact]
