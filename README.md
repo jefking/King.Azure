@@ -1,15 +1,7 @@
-### Azure Storage Simplified
-- Queues/Blobs/Tables/File Shares
-- Azure Storage Resources
-- Dependancy Injection
-- Mockable for testing
-- Prefer async calls
-- Plugs into the [King.Service](https://github.com/jefking/King.Service) task framework
+### DEPRECATED
+Please Use: https://github.com/Microsoft/Azure.Data.Wrappers
 
-### [NuGet](https://www.nuget.org/packages/King.Azure)
+### [NuGet](https://www.nuget.org/packages/Azure.Data.Wrappers)
 ```
-PM> Install-Package King.Azure
+PM> Install-Package Azure.Data.Wrappers
 ```
-
-### [Wiki](https://github.com/jefking/King.Azure/wiki)
-View the wiki to learn how to use this.
